@@ -35,6 +35,10 @@ The application is designed to handle network instability and duplicate submissi
 
 
 ## Working screenshots:
+
+<img width="1920" height="1080" alt="Screenshot (72)" src="https://github.com/user-attachments/assets/35dceb4b-a552-4157-a26b-7db326ae8c04" />
+
+
 <img width="1920" height="1080" alt="Screenshot (71)" src="https://github.com/user-attachments/assets/ebe20300-fb15-41f9-b4ef-f5db1b0e19d4" />
 
-
+Notice in above image: The + Add Expense button is automatically disabled (grayed out) as soon as it is clicked. This client-side lock prevents the user from clicking it again until the backend server sends a response, ensuring no duplicate submissions.
