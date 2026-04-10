@@ -32,3 +32,9 @@ The application is designed to handle network instability and duplicate submissi
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 4. View the app at `http://localhost:3000`
+
+
+## Working screenshots:
+<img width="1920" height="1080" alt="Screenshot (71)" src="https://github.com/user-attachments/assets/ebe20300-fb15-41f9-b4ef-f5db1b0e19d4" />
+
+
