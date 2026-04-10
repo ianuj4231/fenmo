@@ -3,7 +3,7 @@
 A lightweight, robust expense tracking application built with Next.js and TypeScript.
 
 ## 🚀 Live Demo
-[INSERT YOUR VERCEL URL HERE]
+[https://fenmo-eight.vercel.app/](https://fenmo-eight.vercel.app/)
 
 ## 🛠️ Tech Stack
 - **Frontend:** Next.js 15, Tailwind CSS
