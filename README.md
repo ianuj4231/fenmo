@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fenmo - Expense Tracker
 
-## Getting Started
+A lightweight, robust expense tracking application built with Next.js and TypeScript.
 
-First, run the development server:
+## 🚀 Live Demo
+[INSERT YOUR VERCEL URL HERE]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack
+- **Frontend:** Next.js 15, Tailwind CSS
+- **Backend:** Next.js API Routes (Route Handlers)
+- **Language:** TypeScript
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧠 Design Decisions & Requirements
+### Persistence Mechanism
+For this assignment, I utilized an **In-Memory store** (Global variables) for the backend. 
+- **Reasoning:** This ensures the application is "zero-configuration" and runs immediately for the reviewer without needing a database connection string or local SQLite setup. 
+- **Focus**: This allowed me to implement a robust requestId system to prevent duplicate entries and enable preventing clicking of button when user clicks it more than 1 time  continuously until backend response is received, which provides more real-world value than standard database configuration.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Note:** In a production environment, I would swap this for a relational database like **PostgreSQL** or non relational like **Dynamo db** to ensure data persistence across server restarts.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Idempotency & Reliability (Assignment 1 & 2)
+The application is designed to handle network instability and duplicate submissions:
+- **Client-Side:** Implemented a `loading` state lock and button disabling to prevent multiple clicks.
+- **Server-Side:** Each request includes a unique `requestId`. The backend tracks processed IDs in a `Set` to ensure that retried requests (due to page reloads or network timeouts) do not result in duplicate expense entries.
 
-## Learn More
+### Validation
+- **Frontend:** Prevents submission of zero or negative amounts using HTML5 attributes and React state checks.
+- **Backend:** Validates incoming data objects to ensure data integrity.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏃 How to Run Locally
+1. Clone the repository: `git clone https://github.com/ianuj4231/fenmo.git`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. View the app at `http://localhost:3000`
